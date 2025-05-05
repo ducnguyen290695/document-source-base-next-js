@@ -1,53 +1,154 @@
 ## 1. Technical stacks
 
-### **Frontend Framework**
+## 🚀 1. **Frontend Framework**
 
-- **Next.js 13** (`next`)
-- **React 18** (`react`, `react-dom`)
+### **Next.js 12**
 
-### **State Management**
+- ✅ Supports **Pages Router** only (uses `/pages`)
+- ✅ **SSR** (Server-side), **SSG** (Static), **ISR**
+- ✅ Built-in **Image Optimization**, **SEO**, and **API routes**
+- ✅ Supports **Middleware**
 
-- **Redux Toolkit** (`@reduxjs/toolkit`)
-- **React Redux** (`react-redux`)
+### **React 18**
 
-### **UI Libraries & Styling**
+- ✅ **Concurrent Rendering** for faster UX
+- ✅ **Suspense** & **Streaming** (great for SSR with Next.js)
+- ✅ Hooks: `useState`, `useEffect`, `useContext`.
 
-- **Ant Design 5** (`antd`, `@ant-design/icons`)
-- **Styled Components** (`styled-components`)
-- **Tailwind CSS 3** (`tailwindcss`, `prettier-plugin-tailwindcss`)
-- **Sass** (`sass`)
-- **tailwind merge** (utility for conditionally merge classNames)
+---
 
-### **API request**
+## 🚀 2. **State Management**
 
-- **React query** : Server-Side Rendering (SSR) Support, Client-side Caching, Automatic Background Refetching, Pagination & Infinite Scroll, Mutations (POST/PUT/DELETE) with Optimistic Updates, Parallel & Dependent Queries, Parallel & Dependent Queries, Error & Loading States Built-in,...
+### **Redux Toolkit**
 
-- **Axios**
+- ✅ Modern & simplified Redux
+- ✅ Built-in support for **async thunks** and slices
+- ✅ DevTools support
 
-### **Animations**
+---
 
-- **Framer Motion** (`framer-motion`)
+## 🚀 3. **UI Libraries & Styling**
 
-### **Authentication**
+### **Ant Design 5**
 
-- **NextAuth.js** (`next-auth`)
+- ✅ Enterprise-ready UI components
+- ✅ Supports **dark mode**
+- ✅ Built-in **form validation**
+- ✅ Internationalization (i18n) supported out of box
+- ✅ Import on demands
 
-### **Internationalization (i18n)**
+### **Styled Components**
 
-- **i18next** (`i18next`)
-- **react-i18next** (`react-i18next`)
-- **next-i18next** (`next-i18next`)
-- **i18next-scanner** (tool to scan translation keys)
+- ✅ **CSS-in-JS** styling
+- ✅ Supports **dynamic styling** with props
+- ✅ Built-in **SSR** support for Next.js
+- ✅ Avoids class name collisions
 
-### **Linting & Formatting**
+### **Tailwind CSS 3**
 
-- **ESLint** (`eslint`, `eslint-config-airbnb`, `eslint-config-next`, `eslint-config-prettier`)
-- **Prettier** (`prettier`, `prettier-plugin-tailwindcss`)
-- **Husky** (`pre-commit`)
+- ✅ Utility-first CSS framework
+- ✅ **JIT engine** (super fast)
+- ✅ Works great with **responsive design**
+- ✅ Plugins like `prettier-plugin-tailwindcss` auto-sort classes
 
-### **Type Checking**
+### **Sass**
 
-- **TypeScript** (`typescript`, `@types/*` packages)
+- ✅ CSS preprocessor with **variables**, **mixins**, and **nesting**
+- ✅ Optional if Tailwind/Styled Components already used
+
+### **tailwind-merge**
+
+- ✅ Merges and deduplicates Tailwind class names
+- ✅ Helpful in conditional `className` logic
+
+---
+
+## 🚀 4. **API Request**
+
+### **React Query**
+
+- ✅ **SSR Support** with Next.js
+- ✅ **Client-side caching** with hydration
+- ✅ **Background refetching** for fresh data
+- ✅ Supports **pagination**, **infinite scroll**
+- ✅ **Mutations** with optimistic updates
+- ✅ Built-in **loading/error states**
+- ✅ Devtools for query debugging
+
+### **Axios**
+
+- ✅ Promise-based HTTP client
+- ✅ Supports **interceptors** (auth tokens, error handling)
+- ✅ Supports **cancel tokens** for aborting requests
+- ✅ Easy to create custom instances (`apiClient`)
+
+---
+
+## 🚀 5. **Animations**
+
+### **Framer Motion**
+
+- ✅ Declarative animation library for React
+- ✅ Supports **variants**, **gestures** (drag, hover)
+- ✅ Works with **AnimatePresence** for exit animations
+
+---
+
+## 🚀 7. **Internationalization (i18n)**
+
+### **i18next**
+
+- ✅ Core i18n engine (language switching, translation)
+- ✅ Supports **pluralization**, **interpolation**, **fallbacks**
+
+### **react-i18next**
+
+- ✅ React bindings for i18next
+- ✅ Supports **hooks** (`useTranslation`), and SSR
+- ✅ Works with React Suspense
+
+### **next-i18next**
+
+- ✅ Next.js wrapper for i18next
+- ✅ Supports SSR, static, and dynamic routes translation
+- ✅ Auto language detection
+
+### **i18next-scanner**
+
+- ✅ CLI tool to scan `.ts/.tsx` files for translation keys
+- ✅ Auto-generates translation JSON files
+
+---
+
+## 🚀 8. **Linting & Formatting**
+
+### **ESLint**
+
+- ✅ Linting JavaScript & TypeScript code
+- ✅ **Airbnb config** ensures best practices
+- ✅ Next.js-specific lint rules with `eslint-config-next`
+- ✅ Prevents bugs before runtime
+
+### **Prettier**
+
+- ✅ Code formatter (standardizes quotes, spacing)
+- ✅ Works with **Tailwind plugin** to auto-sort class names
+
+### **Husky (via pre-commit)**
+
+- ✅ Runs linting/formatting **before git commits**
+- ✅ Prevents bad code from being pushed
+
+---
+
+## 🚀 9. **Type Checking**
+
+### **TypeScript**
+
+- ✅ Type safety for components, hooks, API calls
+- ✅ Catches errors at compile-time
+- ✅ Supports strict mode (`strict: true`)
+- ✅ Works great with Next.js + React Query + Axios
 
 ---
 
