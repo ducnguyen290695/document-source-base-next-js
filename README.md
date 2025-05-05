@@ -1,4 +1,57 @@
-## 1. Code base structure
+## 1. Technical stacks
+
+### **Frontend Framework**
+
+- **Next.js 13** (`next`)
+- **React 18** (`react`, `react-dom`)
+
+### **State Management**
+
+- **Redux Toolkit** (`@reduxjs/toolkit`)
+- **React Redux** (`react-redux`)
+
+### **UI Libraries & Styling**
+
+- **Ant Design 5** (`antd`, `@ant-design/icons`)
+- **Styled Components** (`styled-components`)
+- **Tailwind CSS 3** (`tailwindcss`, `prettier-plugin-tailwindcss`)
+- **Sass** (`sass`)
+- **tailwind merge** (utility for conditionally merge classNames)
+
+### **API request**
+
+- **React query** : Server-Side Rendering (SSR) Support, Client-side Caching, Automatic Background Refetching, Pagination & Infinite Scroll, Mutations (POST/PUT/DELETE) with Optimistic Updates, Parallel & Dependent Queries, Parallel & Dependent Queries, Error & Loading States Built-in,...
+
+- **Axios**
+
+### **Animations**
+
+- **Framer Motion** (`framer-motion`)
+
+### **Authentication**
+
+- **NextAuth.js** (`next-auth`)
+
+### **Internationalization (i18n)**
+
+- **i18next** (`i18next`)
+- **react-i18next** (`react-i18next`)
+- **next-i18next** (`next-i18next`)
+- **i18next-scanner** (tool to scan translation keys)
+
+### **Linting & Formatting**
+
+- **ESLint** (`eslint`, `eslint-config-airbnb`, `eslint-config-next`, `eslint-config-prettier`)
+- **Prettier** (`prettier`, `prettier-plugin-tailwindcss`)
+- **Husky** (`pre-commit`)
+
+### **Type Checking**
+
+- **TypeScript** (`typescript`, `@types/*` packages)
+
+---
+
+## 2. Code base structure
 
 ```bash
 .husky/
@@ -77,8 +130,7 @@ Main source code for the application.
 
 #### `api/`
 
-API request functions.
-Handles communication with backend services.
+API request functions. Handles communication with backend services.
 
 #### `components/`
 
