@@ -1,6 +1,7 @@
 ## 1. Code base structure
 
 ```bash
+.husky/
 docs/
 public/
 ├── assets/
@@ -12,11 +13,13 @@ public/
 └── vercel.svg
 server-fake/
 src/
+├── api/
 ├── components/
 │   ├── layouts/
 │   ├── templates/
 │   └── ui/
 ├── constants/
+├── enums/
 ├── hooks/
 ├── pages/
 ├── redux/
@@ -44,6 +47,11 @@ yarn.lock
 
 ## Folders
 
+### `.husky/`
+
+Git hooks managed by Husky.
+Used for running checks (like linting, tests) before commits or pushes.
+
 ### `docs/`
 
 Project documentation, guides, and technical specs.
@@ -67,6 +75,11 @@ Mock server or fake API endpoints used during development and testing.
 
 Main source code for the application.
 
+#### `api/`
+
+API request functions.
+Handles communication with backend services.
+
 #### `components/`
 
 Reusable UI components.
@@ -79,6 +92,11 @@ Reusable UI components.
 #### `constants/`
 
 App-wide constants and static configuration values.
+
+#### `enums/`
+
+TypeScript `enum` definitions for standardizing constant values
+(e.g., `UserRole`, `OrderStatus`).
 
 #### `hooks/`
 
