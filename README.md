@@ -1,6 +1,6 @@
-## 1. Technical stacks
+## I. Technical stacks
 
-## 🚀 1. **Frontend Framework**
+### 1. **Frontend Framework**
 
 ### **Next.js 12**
 
@@ -15,9 +15,7 @@
 - ✅ **Suspense** & **Streaming** (great for SSR with Next.js)
 - ✅ Hooks: `useState`, `useEffect`, `useContext`.
 
----
-
-## 🚀 2. **State Management**
+### 2. **State Management**
 
 ### **Redux Toolkit**
 
@@ -25,9 +23,7 @@
 - ✅ Built-in support for **async thunks** and slices
 - ✅ DevTools support
 
----
-
-## 🚀 3. **UI Libraries & Styling**
+### 3. **UI Libraries & Styling**
 
 ### **Ant Design 5**
 
@@ -61,9 +57,7 @@
 - ✅ Merges and deduplicates Tailwind class names
 - ✅ Helpful in conditional `className` logic
 
----
-
-## 🚀 4. **API Request**
+### 4. **API Request**
 
 ### **React Query**
 
@@ -82,9 +76,7 @@
 - ✅ Supports **cancel tokens** for aborting requests
 - ✅ Easy to create custom instances (`apiClient`)
 
----
-
-## 🚀 5. **Animations**
+### 5. **Animations**
 
 ### **Framer Motion**
 
@@ -92,9 +84,7 @@
 - ✅ Supports **variants**, **gestures** (drag, hover)
 - ✅ Works with **AnimatePresence** for exit animations
 
----
-
-## 🚀 7. **Internationalization (i18n)**
+### 7. **Internationalization (i18n)**
 
 ### **i18next**
 
@@ -118,9 +108,7 @@
 - ✅ CLI tool to scan `.ts/.tsx` files for translation keys
 - ✅ Auto-generates translation JSON files
 
----
-
-## 🚀 8. **Linting & Formatting**
+### 8. **Linting & Formatting**
 
 ### **ESLint**
 
@@ -139,9 +127,7 @@
 - ✅ Runs linting/formatting **before git commits**
 - ✅ Prevents bad code from being pushed
 
----
-
-## 🚀 9. **Type Checking**
+### 9. **Type Checking**
 
 ### **TypeScript**
 
@@ -152,7 +138,7 @@
 
 ---
 
-## 2. Code base structure
+## II. Code base structure
 
 ```bash
 .husky/
