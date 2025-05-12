@@ -2,18 +2,12 @@
 
 ### 1. **Frontend Framework**
 
-### **Next.js 12**
+### **Next.js Ver 14**
 
 - ✅ Supports **Pages Router** only (uses `/pages`)
 - ✅ **SSR** (Server-side), **SSG** (Static), **ISR**
 - ✅ Built-in **Image Optimization**, **SEO**, and **API routes**
 - ✅ Supports **Middleware**
-
-### **React 18**
-
-- ✅ **Concurrent Rendering** for faster UX
-- ✅ **Suspense** & **Streaming** (great for SSR with Next.js)
-- ✅ Hooks: `useState`, `useEffect`, `useContext`.
 
 ### 2. **State Management**
 
@@ -23,22 +17,30 @@
 - ✅ Built-in support for **async thunks** and slices
 - ✅ DevTools support
 
-### 3. **UI Libraries & Styling**
+### 3. **UI Libraries**
 
-### **Ant Design 5**
+### **Option 1: Ant Design 5**
 
 - ✅ Enterprise-ready UI components
 - ✅ Supports **dark mode**
 - ✅ Built-in **form validation**
 - ✅ Internationalization (i18n) supported out of box
-- ✅ Import on demands
+- ✅ Tree-shakable and optimized for performance
 
-### **Styled Components**
+### **Option 2: Chakra UI**
 
-- ✅ **CSS-in-JS** styling
-- ✅ Supports **dynamic styling** with props
-- ✅ Built-in **SSR** support for Next.js
-- ✅ Avoids class name collisions
+- ✅ Built-in support for **dark mode**
+- ✅ Easy to customize colors, fonts,...
+- ✅ Tree-shakable and optimized for performance
+- ✅ Built-in support for **responsive design**
+
+### **Option 3: Shadcn UI**
+
+- ✅ Dark Mode Support
+- ✅ Server Components Friendly
+- ✅ Styled with Tailwind CSS
+
+### 4. **Styling**
 
 ### **Tailwind CSS 3**
 
@@ -57,7 +59,7 @@
 - ✅ Merges and deduplicates Tailwind class names
 - ✅ Helpful in conditional `className` logic
 
-### 4. **API Request**
+### 5. **API Request**
 
 ### **React Query**
 
@@ -76,15 +78,7 @@
 - ✅ Supports **cancel tokens** for aborting requests
 - ✅ Easy to create custom instances (`apiClient`)
 
-### 5. **Animations**
-
-### **Framer Motion**
-
-- ✅ Declarative animation library for React
-- ✅ Supports **variants**, **gestures** (drag, hover)
-- ✅ Works with **AnimatePresence** for exit animations
-
-### 7. **Internationalization (i18n)**
+### 6. **Internationalization (i18n)**
 
 ### **i18next**
 
@@ -108,7 +102,7 @@
 - ✅ CLI tool to scan `.ts/.tsx` files for translation keys
 - ✅ Auto-generates translation JSON files
 
-### 8. **Linting & Formatting**
+### 7. **Linting & Formatting**
 
 ### **ESLint**
 
@@ -127,13 +121,13 @@
 - ✅ Runs linting/formatting **before git commits**
 - ✅ Prevents bad code from being pushed
 
-### 9. **Type Checking**
+### 8. **Type Checking**
 
 ### **TypeScript**
 
 - ✅ Type safety for components, hooks, API calls
 - ✅ Catches errors at compile-time
-- ✅ Supports strict mode (`strict: true`)
+- ✅ Supports strict mode
 - ✅ Works great with Next.js + React Query + Axios
 
 ---
@@ -163,7 +157,8 @@
 ├── server-fake/                    # Fake server to simulate backend API responses
 ├── src/                            # Source code folder containing the app’s logic
 │   ├── api/                        # API configurations and services
-│   │   └── axios-instance.ts       # Axios instance with base URL and interceptors
+│   │   ├── axios-instance.ts       # Axios instance with base URL and interceptors
+│   │   └── api-request.ts          # API request
 │   ├── components/                 # Reusable UI components and layouts
 │   │   ├── layouts/                # Layout components for different app sections
 │   │   │   ├── MainLayout.tsx      # Main layout with sidebar and header
