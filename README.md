@@ -4,10 +4,9 @@
 
 ### **Next.js Ver 14**
 
-- ✅ Supports **Pages Router** only (uses `/pages`)
-- ✅ **SSR** (Server-side), **SSG** (Static), **ISR**
-- ✅ Built-in **Image Optimization**, **SEO**, and **API routes**
-- ✅ Supports **Middleware**
+- ✅ **App Router** and **Server Components** support
+- ✅ Built-in **SSR** / **SSG**
+- ✅ Image and Font optimization
 
 ### 2. **State Management**
 
