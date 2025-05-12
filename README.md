@@ -53,10 +53,12 @@
 - ✅ CSS preprocessor with **variables**, **mixins**, and **nesting**
 - ✅ Optional if Tailwind/Styled Components already used
 
-### **tailwind-merge**
+### **styled-components**
 
-- ✅ Merges and deduplicates Tailwind class names
-- ✅ Helpful in conditional `className` logic
+- ✅ CSS-in-JS with **tagged template literals**
+- ✅ Supports **dynamic styling** based on props
+- ✅ Built-in **theming** support
+- ✅ Prevents class name clashes with **scoped styles**
 
 ### 5. **API Request**
 
