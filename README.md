@@ -48,17 +48,16 @@
 - ✅ Works great with **responsive design**
 - ✅ Plugins like `prettier-plugin-tailwindcss` auto-sort classes
 
-### **Sass**
-
-- ✅ CSS preprocessor with **variables**, **mixins**, and **nesting**
-- ✅ Optional if Tailwind/Styled Components already used
-
 ### **styled-components**
 
 - ✅ CSS-in-JS with **tagged template literals**
 - ✅ Supports **dynamic styling** based on props
 - ✅ Built-in **theming** support
 - ✅ Prevents class name clashes with **scoped styles**
+
+### **Sass** (Optional)
+
+- ✅ CSS preprocessor with **variables**, **mixins**, and **nesting**
 
 ### 5. **API Request**
 
