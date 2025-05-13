@@ -349,8 +349,8 @@ Reusable UI components grouped by complexity and responsibility:
 
 - `atoms/`: Base UI elements (`Button`, `Input`, `Avatar`).
 - `molecules/`: Composed UI elements (`LoginForm`, `ProfileCard`).
-- `layouts/`: Page-level layout wrappers (`MainLayout`, `DashboardLayout`).
 - `organisms/`: Higher-order UI sections (`Header`, `Sidebar`, `Footer`).
+- `templates/`: Page-level layout wrappers (`MainLayout`, `DashboardLayout`).
 
 #### `constants/`
 
