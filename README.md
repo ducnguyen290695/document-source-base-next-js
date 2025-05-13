@@ -159,17 +159,16 @@
 │   │   ├── axios-instance.ts       # Configured Axios instance with interceptors
 │   │   └── api-request.ts          # Generic API request handler
 │   ├── components/
-│   │   ├── layouts/                # Page layout components and templates
-│   │   │   ├── templates/
-│   │   │   │   ├── MainLayout.tsx      # Layout with sidebar and header
-│   │   │   │   ├── AuthLayout.tsx      # Layout for authentication pages
-│   │   │   │   ├── DashboardLayout.tsx # Layout for admin dashboard
-│   │   │   │   └── PublicLayout.tsx    # Layout for public-facing pages
-│   │   │   └── organisms
-│   │   │       ├── Header/             # Header UI components
-│   │   │       ├── Sidebar/            # Sidebar navigation components
-│   │   │       ├── Footer/             # Footer components
-│   │   │       └── Breadcrumbs/        # Breadcrumb navigation components
+│   │   │── templates/
+│   │   │   ├── MainLayout.tsx      # Layout with sidebar and header
+│   │   │   ├── AuthLayout.tsx      # Layout for authentication pages
+│   │   │   ├── DashboardLayout.tsx # Layout for admin dashboard
+│   │   │   └── PublicLayout.tsx    # Layout for public-facing pages
+│   │   │── organisms
+│   │   │   ├── Header/             # Header UI components
+│   │   │   ├── Sidebar/            # Sidebar navigation components
+│   │   │   ├── Footer/             # Footer components
+│   │   │   └── Breadcrumbs/        # Breadcrumb navigation components
 │   │   ├── molecules/                  # Mid-level feature-specific UI components
 │   │   │   ├── Auth/                   # Authentication form components
 │   │   │   │   ├── LoginForm.tsx       # Login form
