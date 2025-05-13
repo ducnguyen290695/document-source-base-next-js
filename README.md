@@ -167,13 +167,9 @@
 │   │   │   │   └── PublicLayout.tsx    # Layout for public-facing pages
 │   │   │   └── organisms
 │   │   │       ├── Header/             # Header UI components
-│   │   │       │   └── index.tsx       # Header entry component
 │   │   │       ├── Sidebar/            # Sidebar navigation components
-│   │   │       │   └── index.tsx       # Sidebar entry component
 │   │   │       ├── Footer/             # Footer components
-│   │   │       │   └── index.tsx       # Footer entry component
 │   │   │       └── Breadcrumbs/        # Breadcrumb navigation components
-│   │   │           └── index.tsx       # Breadcrumb entry component
 │   │   ├── molecules/                  # Mid-level feature-specific UI components
 │   │   │   ├── Auth/                   # Authentication form components
 │   │   │   │   ├── LoginForm.tsx       # Login form
@@ -283,18 +279,18 @@
 │   │   ├── api.ts                      # API response/request types
 │   │   ├── user.ts                     # User-related types
 │   │   └── product.ts                  # Product-related types
-│   ├── utils/                          # General utility/helper functions
-│   │   ├── index.ts                    # Barrel export
-│   │   ├── date.ts                     # Date/time utilities
-│   │   ├── file.ts                     # File operation helpers
-│   │   ├── object.ts                   # Object manipulation utilities
-│   │   ├── array.ts                    # Array operation utilities
-│   │   ├── form.ts                     # Form validation and helpers
-│   │   ├── string.ts                   # String formatting/manipulation
-│   │   ├── url.ts                      # URL parsing/generation helpers
-│   │   ├── local-storage.ts            # LocalStorage helpers
-│   │   ├── i18n.ts                     # Internationalization helpers
-│   │   └── cookie.ts                   # Cookie utility functions
+│   └── utils/                          # General utility/helper functions
+│       ├── index.ts                    # Barrel export
+│       ├── date.ts                     # Date/time utilities
+│       ├── file.ts                     # File operation helpers
+│       ├── object.ts                   # Object manipulation utilities
+│       ├── array.ts                    # Array operation utilities
+│       ├── form.ts                     # Form validation and helpers
+│       ├── string.ts                   # String formatting/manipulation
+│       ├── url.ts                      # URL parsing/generation helpers
+│       ├── local-storage.ts            # LocalStorage helpers
+│       ├── i18n.ts                     # Internationalization helpers
+│       └── cookie.ts                   # Cookie utility functions
 ├── .env.local                         # Local environment variables (ignored by Git)
 ├── .eslintignore                      # ESLint ignore rules
 ├── .eslintrc.json                     # ESLint configuration
