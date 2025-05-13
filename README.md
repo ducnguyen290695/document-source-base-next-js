@@ -135,176 +135,180 @@
 ## II. Code base structure
 
 ```bash
-├── .husky/                         # Git hooks configuration
-├── docs/                           # Documentation files for the project
-├── public/                         # Static files publicly accessible
-│   ├── images/                     # Image assets for the app
-│   ├── videos/                     # Video assets for the app
-│   ├── audio/                      # Audio assets for the app
-│   ├── favicon/                    # Favicon files
-│   ├── documents/                  # Document files
-│   ├── locales/                    # Localization files for internationalization
-│   │   ├── index.ts                # Index file for i18n
-│   │   ├── en/                     # English translation files
-│   │   │   ├── home.json           # English content for the home page
-│   │   │   └── about.json          # English content for the about page
-│   │   └── jp/                     # Japanese translation files
-│   │       ├── home.json           # Japanese content for the home page
-│   │       └── about.json          # Japanese content for the about page
-│   ├── next.svg                    # Next.js logo (or related branding)
-│   ├── site.webmanifest            # Web app manifest for PWA
-│   └── vercel.svg                  # Vercel logo (branding for deployment)
-├── server-fake/                    # Fake server to simulate backend API responses
-├── src/                            # Source code folder containing the app’s logic
-│   ├── api/                        # API configurations and services
-│   │   ├── axios-instance.ts       # Axios instance with base URL and interceptors
-│   │   └── api-request.ts          # API request
-│   ├── components/                 # Reusable UI components and layouts
-│   │   ├── layouts/                # Layout components for different app sections
-│   │   │   ├── MainLayout.tsx      # Main layout with sidebar and header
-│   │   │   ├── AuthLayout.tsx      # Layout for authentication pages
-│   │   │   ├── DashboardLayout.tsx # Admin dashboard layout
-│   │   │   ├── PublicLayout.tsx    # Layout for public pages
-│   │   │   ├── Header/             # Header components
-│   │   │   │   └── Header.tsx      # Main header component
-│   │   │   ├── Sidebar/            # Sidebar components
-│   │   │   │   └── Sidebar.tsx     # Sidebar navigation
-│   │   │   ├── Footer/             # Footer components
-│   │   │   │   └── Footer.tsx      # Footer component
-│   │   │   └── Breadcrumbs/        # Breadcrumbs component
-│   │   │       └── Breadcrumbs.tsx # Breadcrumb navigation component
-│   │   ├── templates/              # Templates for pages like user, profile, settings
-│   │   │   ├── Auth/               # Authentication-related templates
-│   │   │   │   ├── LoginForm.tsx   # Login form template
-│   │   │   │   └── RegisterForm.tsx # Register form template
-│   │   │   ├── Profile/            # Profile-related templates
-│   │   │   │   ├── ProfileCard.tsx # Profile card template
-│   │   │   │   └── ProfileForm.tsx # Profile form template
-│   │   │   └── Settings/           # Settings-related templates
-│   │   │       ├── AccountSettings.tsx # Account settings form template
-│   │   │       └── NotificationSettings.tsx # Notification settings form template
-│   │   └── ui/                     # UI components
-│   │       ├── Button/             # Button component
-│   │       ├── Input/              # Input component
-│   │       ├── Table/              # Table component
-│   │       ├── Form/               # Form component
-│   │       ├── Select/             # Select component
-│   │       ├── Checkbox/           # Checkbox component
-│   │       ├── Notification/       # Notification component
-│   │       ├── Upload/             # File upload component
-│   │       ├── Avatar/             # Avatar component
-│   │       ├── Tabs/               # Tab navigation component
-│   │       ├── Tag/                # Tag component
-│   │       ├── Tooltip/            # Tooltip component
-│   │       ├── Drawer/             # Drawer component
-│   │       ├── Image/              # Image component
-│   │       ├── Radio/              # Radio button component
-│   │       └── Loading/            # Loading spinner component
-│   ├── constants/                  # Constants used throughout the app
-│   │   ├── routes.ts               # Route paths constants
-│   │   ├── api-endpoints.ts        # API endpoint paths
-│   │   ├── roles.ts                # User roles
-│   │   ├── messages.ts             # Success & error message templates
-│   │   ├── regex.ts                # Common regex patterns
-│   │   ├── i18n-keys.ts            # Translation keys
-│   │   ├── app-config.ts           # General app configuration settings
-│   │   └── index.ts                # Barrel export
-│   ├── enums/                      # Enums for various app values
-│   │   ├── role.ts                 # Enum for user roles
-│   │   ├── status.ts               # Enum for common statuses
-│   │   ├── language.ts             # Enum for supported languages
-│   │   ├── theme.ts                # Enum for theme options
-│   │   ├── storage-key.ts          # Enum for localStorage keys
-│   │   ├── route.ts                # Enum for app routes
-│   │   ├── api-endpoint.ts         # Enum for API endpoints
-│   │   └── index.ts                # Barrel export
-│   ├── hooks/                      # Custom React hooks for reusable logic
-│   │   ├── index.ts                # Barrel export for hooks
-│   │   ├── useBoolean.ts           # Hook for boolean state
-│   │   ├── useNetworkState.ts      # Hook for network state
-│   │   ├── useParams.ts            # Hook for retrieving URL parameters
-│   │   ├── useToggle.ts            # Hook for toggle behavior
-│   │   ├── useResponsive.ts        # Hook for responsive design
-│   │   ├── useIsFirstRender.ts     # Hook for detecting first render
-│   │   ├── useDebounce.ts          # Hook for debouncing input
-│   │   ├── useCopyToClipboard.ts   # Hook for copying content to clipboard
-│   │   ├── useMediaQuery.ts        # Hook for media query state
-│   │   ├── usePrevious.ts          # Hook for tracking previous state
-│   │   ├── useWindowScroll.ts      # Hook for tracking window scroll position
-│   │   ├── useWindowSize.ts        # Hook for window size
-│   │   ├── useOnClickOutside.ts    # Hook for handling clicks outside elements
-│   │   └── usePagination.ts        # Hook for pagination logic
-│   ├── pages/                      # Pages corresponding to app routes
-│   │   ├── _app.tsx                # Global app wrapper
-│   │   ├── _document.tsx           # Custom document configuration
-│   │   ├── index.tsx               # Homepage
-│   │   ├── auth/                   # Authentication-related pages
-│   │   │   ├── login.tsx           # Login page
-│   │   │   └── register.tsx        # Register page
-│   │   ├── dashboard/              # Admin dashboard pages
-│   │   │   └── index.tsx           # Dashboard homepage
-│   │   ├── users/                  # User management pages
-│   │   │   ├── index.tsx           # Users listing page
-│   │   │   └── [id].tsx            # User detail page
-│   │   ├── products/               # Product management pages
-│   │   │   ├── index.tsx           # Products listing page
-│   │   │   └── [id].tsx            # Product detail page
-│   │   ├── settings/               # User settings page
-│   │   │   └── index.tsx           # Settings page
-│   │   ├── 404.tsx                 # Custom 404 Page
-│   │   └── 403.tsx                 # Custom 403 Page
-│   ├── redux/                      # Redux store and state management
-│   │   ├── index.ts                # Redux store setup
-│   │   ├── slices/                 # Redux slices
-│   │   ├── hooks.ts                # Custom Redux hooks
-│   │   └── root-reducer.ts         # Combines reducers
-│   ├── services/                   # Services to interact with APIs
-│   │   ├── auth.service.ts         # Auth-related API calls
-│   │   ├── user.service.ts         # User CRUD operations
-│   │   ├── product.service.ts      # Product CRUD operations
-│   │   ├── file.service.ts         # File handling (upload, download)
-│   │   ├── setting.service.ts      # App and user settings APIs
-│   │   ├── common.service.ts       # Common API utilities
-│   │   └── index.ts                # Optional barrel export
-│   ├── styles/                     # CSS and style configuration
-│   │   ├── globals.scss            # Global styles (applied globally)
-│   │   ├── tailwind.css            # Tailwind CSS import
-│   │   ├── variables.scss          # SCSS variables for global styling
-│   │   ├── mixins.scss             # SCSS mixins and functions
-│   │   ├── antd.override.scss      # Custom overrides for Ant Design
-│   │   ├── theme.ts                # Theme configuration (Styled Components)
-│   │   └── index.ts                # Barrel export
-│   ├── types/                      # TypeScript type definitions
-│   │   ├── index.ts                # General app types
-│   │   ├── api.ts                  # API response types
-│   │   ├── user.ts                 # User-related types
-│   │   └── product.ts              # Product-related types
-│   ├── utils/                      # Utility functions
-│   │   ├── index.ts                # Barrel export
-│   │   ├── date.ts                 # Date manipulation utilities
-│   │   ├── file.ts                 # File-related utilities
-│   │   ├── object.ts               # Object manipulation utilities
-│   │   ├── array.ts                # Array utilities
-│   │   ├── form.ts                 # Form-related utilities
-│   │   ├── string.ts               # String manipulation utilities
-│   │   ├── url.ts                  # URL utilities
-│   │   ├── local-storage.ts        # localStorage utility functions
-│   │   ├── i18n.ts                 # i18n utilities
-│   │   └── cookie.ts               # Cookie manipulation utilities
-├── .env.local                      # Local environment variables
-├── .eslintignore                   # ESLint ignore configuration
-├── .eslintrc.json                  # ESLint configuration file
-├── .gitignore                      # Git ignore configuration
-├── .prettierignore                 # Prettier ignore configuration
-├── .prettierrc                     # Prettier configuration
-├── next-i18next.config.js          # Configuration for next-i18next
-├── next.config.js                  # Next.js configuration
-├── package.json                    # Project metadata and dependencies
-├── postcss.config.js               # PostCSS configuration for CSS processing
-├── README.md                       # Project documentation
-├── tailwind.config.js              # Tailwind CSS configuration
-├── tsconfig.json                   # TypeScript configuration
-└── yarn.lock                       # Yarn lock file
+├── .husky/                         # Configuration for Git hooks using Husky
+├── docs/                           # Project documentation and guides
+├── public/                         # Public static assets served directly by Next.js
+│   ├── images/                     # Static image assets (logos, icons)
+│   ├── videos/                     # Static video files
+│   ├── audio/                      # Static audio files
+│   ├── favicon/                    # Favicon and related icons
+│   ├── documents/                  # Downloadable/public documents
+│   ├── locales/                    # Localization files for internationalization (i18n)
+│   │   ├── index.ts                # Locale index and configuration
+│   │   ├── en/                     # English language translations
+│   │   │   ├── home.json           # English strings for the home page
+│   │   │   └── about.json          # English strings for the about page
+│   │   └── jp/                     # Japanese language translations
+│   │       ├── home.json           # Japanese strings for the home page
+│   │       └── about.json          # Japanese strings for the about page
+│   ├── next.svg                    # Next.js logo or branding asset
+│   └── site.webmanifest            # PWA manifest configuration file
+├── server-fake/                    # Mock server simulating backend API responses
+├── src/                            # Application source code
+│   ├── api/                        # API configuration and request utilities
+│   │   ├── axios-instance.ts       # Configured Axios instance with interceptors
+│   │   └── api-request.ts          # Generic API request handler
+│   ├── components/
+│   │   ├── layouts/                # Page layout components and templates
+│   │   │   ├── templates/
+│   │   │   │   ├── MainLayout.tsx      # Layout with sidebar and header
+│   │   │   │   ├── AuthLayout.tsx      # Layout for authentication pages
+│   │   │   │   ├── DashboardLayout.tsx # Layout for admin dashboard
+│   │   │   │   └── PublicLayout.tsx    # Layout for public-facing pages
+│   │   │   └── organisms
+│   │   │       ├── Header/             # Header UI components
+│   │   │       │   └── index.tsx       # Header entry component
+│   │   │       ├── Sidebar/            # Sidebar navigation components
+│   │   │       │   └── index.tsx       # Sidebar entry component
+│   │   │       ├── Footer/             # Footer components
+│   │   │       │   └── index.tsx       # Footer entry component
+│   │   │       └── Breadcrumbs/        # Breadcrumb navigation components
+│   │   │           └── index.tsx       # Breadcrumb entry component
+│   │   ├── molecules/                  # Mid-level feature-specific UI components
+│   │   │   ├── Auth/                   # Authentication form components
+│   │   │   │   ├── LoginForm.tsx       # Login form
+│   │   │   │   └── RegisterForm.tsx    # Registration form
+│   │   │   ├── Profile/                # User profile components
+│   │   │   │   ├── ProfileCard.tsx     # Display user profile info
+│   │   │   │   └── ProfileForm.tsx     # Edit profile form
+│   │   │   └── Settings/               # Settings-related forms
+│   │   │       ├── AccountSettings.tsx     # Account settings form
+│   │   │       └── NotificationSettings.tsx # Notification preferences
+│   │   └── atoms/                      # Basic reusable UI elements
+│   │       ├── Button/                 # Button component
+│   │       ├── Input/                  # Input field component
+│   │       ├── Table/                  # Table display component
+│   │       ├── Form/                   # Form layout component
+│   │       ├── Select/                 # Select dropdown component
+│   │       ├── Checkbox/               # Checkbox component
+│   │       ├── Notification/           # Notification/alert component
+│   │       ├── Upload/                 # File upload input
+│   │       ├── Avatar/                 # Avatar/display image component
+│   │       ├── Tabs/                   # Tabbed navigation component
+│   │       ├── Tag/                    # Tag or label component
+│   │       ├── Tooltip/                # Tooltip component
+│   │       ├── Drawer/                 # Drawer/sidebar panel component
+│   │       ├── Image/                  # Image display component
+│   │       ├── Radio/                  # Radio button component
+│   │       └── Loading/                # Loading spinner indicator
+│   ├── constants/                      # Static values and app-wide constants
+│   │   ├── routes.ts                   # Route path constants
+│   │   ├── api-endpoints.ts            # API endpoint paths
+│   │   ├── roles.ts                    # User role definitions
+│   │   ├── messages.ts                 # Success/error message templates
+│   │   ├── regex.ts                    # Commonly used regex patterns
+│   │   ├── i18n-keys.ts                # Translation key strings
+│   │   ├── app-config.ts               # General app-level configurations
+│   │   └── index.ts                    # Barrel export for constants
+│   ├── enums/                          # TypeScript enums for standardized values
+│   │   ├── role.ts                     # Enum for user roles
+│   │   ├── status.ts                   # Enum for common statuses
+│   │   ├── language.ts                 # Enum for supported languages
+│   │   ├── theme.ts                    # Enum for UI themes
+│   │   ├── storage-key.ts              # Enum for localStorage keys
+│   │   ├── route.ts                    # Enum for app route names
+│   │   ├── api-endpoint.ts             # Enum for API endpoint names
+│   │   └── index.ts                    # Barrel export for enums
+│   ├── hocs/                           # Higher-Order Components to enhance components
+│   │   ├── withAuth.tsx                # HOC to protect routes requiring authentication
+│   │   └── withLocale.tsx              # HOC to provide locale context
+│   ├── hooks/                          # Custom React hooks for shared logic
+│   │   ├── index.ts                    # Barrel export for hooks
+│   │   ├── useBoolean.ts               # Boolean toggle hook
+│   │   ├── useNetworkState.ts          # Track online/offline network state
+│   │   ├── useParams.ts                # Extract URL parameters
+│   │   ├── useToggle.ts                # Simple toggle logic
+│   │   ├── useResponsive.ts            # Handle responsive breakpoints
+│   │   ├── useIsFirstRender.ts         # Detect initial component render
+│   │   ├── useDebounce.ts              # Debounce input values
+│   │   ├── useCopyToClipboard.ts       # Copy text to clipboard
+│   │   ├── useMediaQuery.ts            # Listen for media query changes
+│   │   ├── usePrevious.ts              # Track previous value of a variable
+│   │   ├── useWindowScroll.ts          # Track scroll position
+│   │   ├── useWindowSize.ts            # Get window size (width/height)
+│   │   ├── useOnClickOutside.ts        # Detect outside element clicks
+│   │   └── usePagination.ts            # Handle pagination logic
+│   ├── pages/                          # Pages that map to routes in Next.js
+│   │   ├── _app.tsx                    # Custom App component
+│   │   ├── _document.tsx               # Custom Document setup
+│   │   ├── index.tsx                   # Home page
+│   │   ├── auth/                       # Auth-related pages
+│   │   │   ├── login.tsx               # Login screen
+│   │   │   └── register.tsx            # Registration screen
+│   │   ├── dashboard/                  # Admin dashboard pages
+│   │   │   └── index.tsx               # Dashboard home
+│   │   ├── users/                      # User management pages
+│   │   │   ├── index.tsx               # User list
+│   │   │   └── [id].tsx                # User detail page
+│   │   ├── products/                   # Product management pages
+│   │   │   ├── index.tsx               # Product list
+│   │   │   └── [id].tsx                # Product detail page
+│   │   ├── settings/                   # Settings page
+│   │   │   └── index.tsx               # User settings screen
+│   │   ├── 404.tsx                     # Custom 404 error page
+│   │   └── 403.tsx                     # Custom 403 error page
+│   ├── redux/                          # Redux state management setup
+│   │   ├── index.ts                    # Redux store initialization
+│   │   ├── slices/                     # Feature-specific Redux slices
+│   │   ├── hooks.ts                    # Typed Redux hooks
+│   │   └── root-reducer.ts             # Combines all reducers
+│   ├── services/                       # API service modules for business logic
+│   │   ├── auth.service.ts             # Authentication API functions
+│   │   ├── user.service.ts             # User-related API calls
+│   │   ├── product.service.ts          # Product-related API calls
+│   │   ├── file.service.ts             # File upload/download services
+│   │   ├── setting.service.ts          # User/app settings services
+│   │   ├── common.service.ts           # Common/shared API calls
+│   │   └── index.ts                    # Barrel export (optional)
+│   ├── styles/                         # Styling and theming configuration
+│   │   ├── globals.scss                # Global styles
+│   │   ├── tailwind.css                # Tailwind base imports
+│   │   ├── variables.scss              # SCSS variables for global use
+│   │   ├── mixins.scss                 # Reusable SCSS mixins/functions
+│   │   ├── antd.override.scss          # Custom overrides for Ant Design
+│   │   ├── theme.ts                    # Theme config for Styled Components
+│   │   └── index.ts                    # Barrel export
+│   ├── types/                          # TypeScript type definitions
+│   │   ├── index.ts                    # General shared types
+│   │   ├── api.ts                      # API response/request types
+│   │   ├── user.ts                     # User-related types
+│   │   └── product.ts                  # Product-related types
+│   ├── utils/                          # General utility/helper functions
+│   │   ├── index.ts                    # Barrel export
+│   │   ├── date.ts                     # Date/time utilities
+│   │   ├── file.ts                     # File operation helpers
+│   │   ├── object.ts                   # Object manipulation utilities
+│   │   ├── array.ts                    # Array operation utilities
+│   │   ├── form.ts                     # Form validation and helpers
+│   │   ├── string.ts                   # String formatting/manipulation
+│   │   ├── url.ts                      # URL parsing/generation helpers
+│   │   ├── local-storage.ts            # LocalStorage helpers
+│   │   ├── i18n.ts                     # Internationalization helpers
+│   │   └── cookie.ts                   # Cookie utility functions
+├── .env.local                         # Local environment variables (ignored by Git)
+├── .eslintignore                      # ESLint ignore rules
+├── .eslintrc.json                     # ESLint configuration
+├── .gitignore                         # Git ignore rules
+├── .prettierignore                    # Prettier ignore rules
+├── .prettierrc                        # Prettier configuration
+├── next-i18next.config.js             # i18n configuration for Next.js
+├── next.config.js                     # Main configuration for Next.js
+├── package.json                       # Project metadata and dependencies
+├── postcss.config.js                  # PostCSS plugin configuration
+├── README.md                          # Project overview and setup guide
+├── tailwind.config.js                 # Tailwind CSS configuration
+├── tsconfig.json                      # TypeScript compiler options
+└── yarn.lock                          # Locked dependency versions for Yarn
 ```
 
 ---
@@ -314,82 +318,93 @@
 ### `.husky/`
 
 Git hooks managed by Husky.
-Used for running checks (like linting, tests) before commits or pushes.
+Used to automate pre-commit and pre-push checks: linting, testing,...
 
 ### `docs/`
 
-Project documentation, guides, and technical specs.
+Project documentation and technical guides.
 
 ### `public/`
 
-Static assets served directly at the root (`/`)
+Static assets served directly at the root
 
-- `assets/`: Images, icons, and media files.
-- `favicon/`: All favicon-related files.
-- `locales/`: Translation files for i18n (internationalization).
-- `favicon.ico`: Default site favicon.
-- `next.svg`, `vercel.svg`: Example assets (can be cleaned up if unused).
-- `site.webmanifest`: Manifest for PWA (Progressive Web App) support.
+- `images/`: Icons, logos, general images.
+- `videos/`: Public video assets.
+- `audio/`: Audio files for playback.
+- `favicon/`: Site favicon and related icon assets.
+- `documents/`: Downloadable files like PDFs or terms.
+- `locales/`: i18n translation files
+- `site.webmanifest`: Configuration for PWA support.
 
 ### `server-fake/`
 
-Mock server or fake API endpoints used during development and testing.
+Mock server to simulate API responses for local development/testing.
 
 ### `src/`
 
-Main source code for the application.
+Main application source code.
 
 #### `api/`
 
-API request functions. Handles communication with backend services.
+Handles configuration and abstraction for backend requests using Axios.
 
 #### `components/`
 
-Reusable UI components.
+Reusable UI components grouped by complexity and responsibility:
 
-- `layout/`: Page layout wrappers (e.g., `Header`, `Footer`, `Sidebar`).
-- `seo/`: SEO components like `<Head>` management.
-- `template/`: Page templates or section-level components.
-- `ui/`: Atomic UI components (e.g., `Button`, `Input`, `Modal`).
+- `atoms/`: Base UI elements (`Button`, `Input`, `Avatar`).
+- `molecules/`: Composed UI elements (`LoginForm`, `ProfileCard`).
+- `layouts/`: Page-level layout wrappers (`MainLayout`, `DashboardLayout`).
+- `organisms/`: Higher-order UI sections (`Header`, `Sidebar`, `Footer`).
 
 #### `constants/`
 
-App-wide constants and static configuration values.
+Global constants and configuration (routes, API endpoints, messages).
 
 #### `enums/`
 
-TypeScript `enum` definitions for standardizing constant values
-(e.g., `UserRole`, `OrderStatus`).
+TypeScript `enum`s for defining fixed sets of values (`Roles`, `Status`, `Themes`, `Languages`).
+
+#### `hocs/`
+
+Higher-Order Components that wrap and enhance other components (route protection with `withAuth`, locale injection with `withLocale`).
 
 #### `hooks/`
 
-Custom React hooks (`useXYZ`) to encapsulate logic.
+Custom reusable logic using React hooks (`useToggle`, `useResponsive`, `usePagination`, etc.).
 
 #### `pages/`
 
-Next.js pages. Maps directly to routes (`/about` → `pages/about.tsx`).
+- Mirrors app routes (`/login`, `/dashboard`, `/products/[id]`).
+- Includes global app and document files (`_app.tsx`, `_document.tsx`).
 
 #### `redux/`
 
-Redux state management:
+Redux state management setup:
 
-- Slices, store setup, selectors, and actions.
+- `slices/`: Modular state slices.
+- `hooks.ts`: Typed Redux hooks.
+- `store`: Store initialization and root reducer.
 
 #### `services/`
 
-API service handlers and business logic (e.g., API calls, external services).
+Business logic layer with API integration (`auth.service`, `product.service`).
 
 #### `styles/`
 
-Global and module-based stylesheets. Likely contains Tailwind or custom CSS/SCSS.
+Styling and theme management:
+
+- SCSS and TailwindCSS support.
+- Ant Design overrides.
+- Theme definitions and variables.
 
 #### `types/`
 
-TypeScript type declarations and interfaces for consistent typing.
+Global TypeScript interfaces and type declarations (for API responses, user objects).
 
 #### `utils/`
 
-Helper functions and utilities used across the app.
+Reusable utility functions for common logic (formatting, validation, i18n helpers, localStorage).
 
 ---
 
@@ -397,35 +412,35 @@ Helper functions and utilities used across the app.
 
 ### `.env.local`
 
-Local environment variables (API keys, base URLs).
+Environment-specific variables (API base URLs).
 
 ### `.eslintignore`
 
-Specifies files and folders for ESLint to ignore.
+Files/folders excluded from linting.
 
 ### `.eslintrc.json`
 
-ESLint configuration for code linting and quality checks.
+ESLint configuration for consistent code quality.
 
 ### `.gitignore`
 
-Git ignore rules to exclude files/folders from version control.
+Files/folders Git should ignore.
 
 ### `.prettierignore`
 
-Specifies files and folders for Prettier to skip formatting.
+Files/folders excluded from Prettier formatting.
 
 ### `.prettierrc`
 
-Prettier configuration for code formatting rules (e.g., tabs, semicolons, quotes).
+Prettier formatting rules.
 
 ### `next-i18next.config.js`
 
-Configuration for `next-i18next`, enabling internationalization in Next.js.
+i18n configuration for Next.js using `next-i18next`.
 
 ### `next.config.js`
 
-Core Next.js configuration (custom Webpack, redirects, environment setup).
+Custom Next.js configuration (Webpack, redirects, env setup).
 
 ### `package.json`
 
@@ -433,22 +448,22 @@ Project dependencies, scripts, and metadata.
 
 ### `postcss.config.js`
 
-Configures PostCSS (used with TailwindCSS and autoprefixing).
+PostCSS configuration (used with Tailwind for autoprefixing, etc.).
 
 ### `README.md`
 
-Project overview, setup instructions, and documentation.
+Overview of the project, tech stack, setup, and usage.
 
 ### `tailwind.config.js`
 
-TailwindCSS configuration (custom themes, breakpoints, plugins).
+TailwindCSS configuration: custom themes, plugins, and breakpoints.
 
 ### `tsconfig.json`
 
-TypeScript compiler options and path aliases.
+TypeScript configuration, including compiler options and path aliases.
 
 ### `yarn.lock`
 
-Yarn lock file to ensure consistent dependency versions.
+Yarn lock file for exact dependency versions.
 
 ---
